@@ -2,7 +2,7 @@
 using PostBlog.Models;
 using PostBlog.Services;
 using PostBlog.ViewModels;
-
+//This is Blog Controller
 namespace PostBlog.Controllers
 {
     public class BlogController : Controller
