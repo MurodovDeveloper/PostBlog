@@ -10,12 +10,12 @@ namespace PostBlog
     {
         public static void Main(string[] args)
         {
-            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            //AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
             builder.Services.AddTransient<IPostService, PostService>();
             builder.Services.AddDbContext<PostDbContext>(options =>
-                options.UseNpgsql(builder.Configuration.GetConnectionString("PostConnection")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("PostConnection")));
             var app = builder.Build();
             if (!app.Environment.IsDevelopment())
             {
@@ -27,7 +27,7 @@ namespace PostBlog
 
             app.UseRouting();
 
-            app.UseAuthorization();
+          //  app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",

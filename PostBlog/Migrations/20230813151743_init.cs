@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PostBlog.Migrations
 {
     /// <inheritdoc />
-    public partial class Initializer : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace PostBlog.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Title = table.Column<string>(type: "text", nullable: false),
                     Body = table.Column<string>(type: "text", nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     ImageFileName = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
